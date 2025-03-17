@@ -13,7 +13,7 @@ export default function Register() {
     const password = formData.get('password');
     try {
       const response = await fetch(
-        'https://simpleserverjs.vercel.app/api/user/register',
+        'https://simpleserverapp.vercel.app/api/user/register',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

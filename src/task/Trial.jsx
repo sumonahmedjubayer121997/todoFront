@@ -9,35 +9,63 @@ import TaskList from './TaskList';
 import AddTaskModal from './AddTaskModal';
 import Header from '../Header';
 
+// const fetcher = async (url) => {
+//   const token = localStorage.getItem('token'); // ✅ Get the token from localStorage
+
+//   if (!token) {
+//     console.error('No authentication token found.');
+//     throw new Error('No authentication token. Please log in again.');
+//   }
+
+//   try {
+//     const response = await fetch(url, {
+//       method: 'GET',
+//       headers: {
+//         'Content-Type': 'application/json',
+//         Authorization: `Bearer ${token}`, // ✅ Include the token
+//       },
+//       credentials: 'include', // ✅ Important for cookies
+//       mode: 'cors',
+//     });
+//     console.log('🔍 Fetch Request Status:', response.status);
+//     console.log('🔍 Fetch Request Headers:', response.headers);
+//     if (!response.ok) {
+//       const errorData = await response.json();
+//       console.log('Error Data:', errorData);
+//       throw new Error(errorData.message || 'Unauthorized or fetch error');
+//     }
+
+//     return response.json();
+//   } catch (error) {
+//     console.error('Fetch Error:', error);
+//     throw new Error(
+//       error.message || 'Something went wrong while fetching data.'
+//     );
+//   }
+// };
+
 const fetcher = async (url) => {
-  const token = localStorage.getItem('token'); // ✅ Get the token from localStorage
-
-  if (!token) {
-    console.error('No authentication token found.');
-    throw new Error('No authentication token. Please log in again.');
-  }
-
   try {
     const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`, // ✅ Include the token
       },
-      credentials: 'include', // ✅ Important for cookies
-      mode: 'cors',
+      credentials: 'include', // ✅ REQUIRED for sending cookies
     });
+
     console.log('🔍 Fetch Request Status:', response.status);
     console.log('🔍 Fetch Request Headers:', response.headers);
+
     if (!response.ok) {
       const errorData = await response.json();
-      console.log('Error Data:', errorData);
+      console.log('❌ Fetch Error Data:', errorData);
       throw new Error(errorData.message || 'Unauthorized or fetch error');
     }
 
     return response.json();
   } catch (error) {
-    console.error('Fetch Error:', error);
+    console.error('❌ Fetch Error:', error);
     throw new Error(
       error.message || 'Something went wrong while fetching data.'
     );
