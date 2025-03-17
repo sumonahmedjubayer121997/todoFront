@@ -27,7 +27,8 @@ const fetcher = async (url) => {
       credentials: 'include', // ✅ Important for cookies
       mode: 'cors',
     });
-    console.log(response);
+    console.log('🔍 Fetch Request Status:', response.status);
+    console.log('🔍 Fetch Request Headers:', response.headers);
     if (!response.ok) {
       const errorData = await response.json();
       console.log('Error Data:', errorData);
