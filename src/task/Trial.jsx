@@ -326,7 +326,7 @@ const Todos = () => {
 
   //       // ✅ Send update request to the server
   //       const response = await fetch(
-  //         `https://simpleserverjs.vercel.app/api/todos/${taskId}`,
+  //         `https://simpleserverapp.vercel.app/api/todos/${taskId}`,
   //         {
   //           method: 'PUT',
   //           headers: {

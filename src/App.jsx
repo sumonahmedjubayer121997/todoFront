@@ -40,7 +40,7 @@ function App() {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password }),
-          credentials: 'include',
+          credentials: 'include', // ✅ REQUIRED for sending cookies
         }
       );
 
@@ -50,8 +50,10 @@ function App() {
         throw new Error(data.message || '❌ Login failed');
       }
 
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
+      // ❌ REMOVE THIS - We don't need localStorage for token anymore
+      // localStorage.setItem("token", data.token);
+
+      localStorage.setItem('user', JSON.stringify(data.user)); // ✅ Keep user info (optional)
 
       setIsLoggedIn(true); // ✅ Update login state
       navigate('/'); // ✅ Redirect after successful login
@@ -62,7 +64,6 @@ function App() {
       setLoading(false);
     }
   };
-
   return (
     <>
       <Header />

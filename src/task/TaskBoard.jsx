@@ -28,7 +28,7 @@ export default function TaskBoard() {
   // useEffect(() => {
   //   const fetchTasks = async () => {
   //     try {
-  //       const response = await fetch('https://simpleserverjs.vercel.app/api/todos');
+  //       const response = await fetch('https://simpleserverapp.vercel.app/api/todos');
   //       const data = await response.json();
   //       console.log('Fetched Tasks:', data); // Debugging: Check if data is coming
   //       setTasks(data); // Set tasks state
@@ -50,7 +50,7 @@ export default function TaskBoard() {
 
       try {
         const response = await fetch(
-          'https://simpleserverjs.vercel.app/api/todos',
+          'https://simpleserverapp.vercel.app/api/todos',
           {
             headers: {
               'Content-Type': 'application/json',
@@ -81,8 +81,8 @@ export default function TaskBoard() {
       }
 
       const url = isAdd
-        ? 'https://simpleserverjs.vercel.app/api/todos' // ✅ Create Task
-        : `https://simpleserverjs.vercel.app/api/todos/${newTask._id}`; // ✅ Update Task
+        ? 'https://simpleserverapp.vercel.app/api/todos' // ✅ Create Task
+        : `https://simpleserverapp.vercel.app/api/todos/${newTask._id}`; // ✅ Update Task
 
       const method = isAdd ? 'POST' : 'PUT'; // ✅ Dynamic method based on isAdd
 
@@ -124,7 +124,7 @@ export default function TaskBoard() {
 
   //     if (isAdd) {
   //       // ✅ Add New Task
-  //       const response = await fetch('https://simpleserverjs.vercel.app/api/tasks', {
+  //       const response = await fetch('https://simpleserverapp.vercel.app/api/tasks', {
   //         method: 'POST',
   //         headers: { 'Content-Type': 'application/json' },
   //         body: JSON.stringify(newTask),
@@ -137,7 +137,7 @@ export default function TaskBoard() {
   //     } else {
   //       // ✅ Update Existing Task
   //       const response = await fetch(
-  //         `https://simpleserverjs.vercel.app/api/tasks/${newTask._id}`,
+  //         `https://simpleserverapp.vercel.app/api/tasks/${newTask._id}`,
   //         {
   //           method: 'PUT',
   //           headers: { 'Content-Type': 'application/json' },
@@ -183,7 +183,7 @@ export default function TaskBoard() {
   //       };
 
   //       // ✅ Send formatted task to the backend
-  //       const response = await fetch('https://simpleserverjs.vercel.app/api/tasks', {
+  //       const response = await fetch('https://simpleserverapp.vercel.app/api/tasks', {
   //         method: 'POST',
   //         headers: { 'Content-Type': 'application/json' },
   //         body: JSON.stringify(formattedTask),
@@ -208,7 +208,7 @@ export default function TaskBoard() {
   //       console.log('Sending Task Data:', newTask); // Debugging step
 
   //       // Ensure that newTask has all required fields
-  //       const response = await fetch('https://simpleserverjs.vercel.app/api/tasks', {
+  //       const response = await fetch('https://simpleserverapp.vercel.app/api/tasks', {
   //         method: 'POST',
   //         headers: { 'Content-Type': 'application/json' },
   //         body: JSON.stringify({
@@ -237,7 +237,7 @@ export default function TaskBoard() {
   //   try {
   //     if (isAdd) {
   //       // ✅ Send POST request to backend to add new task
-  //       const response = await fetch('https://simpleserverjs.vercel.app/api/tasks', {
+  //       const response = await fetch('https://simpleserverapp.vercel.app/api/tasks', {
   //         method: 'POST',
   //         headers: { 'Content-Type': 'application/json' },
   //         body: JSON.stringify(newTask),
@@ -250,7 +250,7 @@ export default function TaskBoard() {
   //     } else {
   //       // ✅ Send PUT request to update existing task
   //       const response = await fetch(
-  //         `https://simpleserverjs.vercel.app/api/tasks/${newTask._id}`,
+  //         `https://simpleserverapp.vercel.app/api/tasks/${newTask._id}`,
   //         {
   //           method: 'PUT',
   //           headers: { 'Content-Type': 'application/json' },
@@ -279,7 +279,7 @@ export default function TaskBoard() {
   //   try {
   //     if (isAdd) {
   //       // Add new task to MongoDB
-  //       const response = await fetch('https://simpleserverjs.vercel.app/api/tasks', {
+  //       const response = await fetch('https://simpleserverapp.vercel.app/api/tasks', {
   //         method: 'POST',
   //         headers: { 'Content-Type': 'application/json' },
   //         body: JSON.stringify(newTask),
@@ -290,7 +290,7 @@ export default function TaskBoard() {
   //     } else {
   //       // Update existing task in MongoDB
   //       const response = await fetch(
-  //         `https://simpleserverjs.vercel.app/api/tasks/${newTask._id}`,
+  //         `https://simpleserverapp.vercel.app/api/tasks/${newTask._id}`,
   //         {
   //           method: 'PUT',
   //           headers: { 'Content-Type': 'application/json' },
@@ -322,7 +322,7 @@ export default function TaskBoard() {
   const handleDeleteTask = async (taskId) => {
     try {
       // Send a DELETE request to remove the task from MongoDB
-      await fetch(`https://simpleserverjs.vercel.app/api/tasks/${taskId}`, {
+      await fetch(`https://simpleserverapp.vercel.app/api/tasks/${taskId}`, {
         method: 'DELETE',
       });
 

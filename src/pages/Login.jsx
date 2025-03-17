@@ -15,7 +15,7 @@ export default function Login() {
 
     try {
       const response = await fetch(
-        'https://simpleserverjs.vercel.app/api/user/login',
+        'https://simpleserverapp.vercel.app/api/user/login',
         {
           method: 'POST',
           headers: {
